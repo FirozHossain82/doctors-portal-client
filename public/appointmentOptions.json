@@ -1,6 +1,5 @@
 [
     {
-      "_id": 1,
       "name": "Dental Implants",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -22,7 +21,6 @@
       ]
     },
     {
-      "_id": 2,
       "name": "Dental Braces",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -44,7 +42,6 @@
       ]
     },
     {
-      "_id": 3,
       "name": "Teeth Cleaning",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -66,7 +63,6 @@
       ]
     },
     {
-      "_id": 4,
       "name": "Cavity Fillings",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -89,7 +85,6 @@
       ]
     },
     {
-      "_id": 5,
       "name": "Root Canal Treatment",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -110,8 +105,7 @@
         "4.30 PM - 5.00 PM"
       ]
     },
-    {
-      "_id": 6,
+    {  
       "name": "Dental Crown",
       "slots": [
         "08.00 AM - 08.30 AM",
