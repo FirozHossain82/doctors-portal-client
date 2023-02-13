@@ -5,16 +5,24 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors } }  = useForm();
-    const {createUser, updateUser,signInWithGoogle,verifyEmail } = useContext(AuthContext);
+    const {createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
 
+
+    if(token){
+      navigate('/');
+    }
+
     const handleSignUp =(data) =>{
-        // console.log(data);
+        console.log(data);
         setSignUpError(' ');
         createUser(data.email, data.password)
         .then(result =>{
@@ -29,7 +37,7 @@ const SignUp = () => {
           updateUser(userInfo)
           .then(() =>{ 
                   navigate('/'); 
-                  saveUser(data.email, data.password);
+                  saveUser(data.name, data.email);
            })
           .catch(err => console.log(err))
         })
@@ -41,6 +49,7 @@ const SignUp = () => {
 
     const saveUser = (name, email) =>{
       const user = {name,  email};
+      console.log(user)
       fetch('http://localhost:5000/users', {
         method: 'POST',
         headers: {
@@ -50,8 +59,9 @@ const SignUp = () => {
       })
       .then(res => res.json())
       .then(data => {
-        console.log( 'saveuser', data);
-        navigate('/');
+        setCreatedUserEmail(email);
+        // console.log( 'save user', data);
+        // navigate('/');
       })
     }
 
