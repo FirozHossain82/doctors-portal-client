@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
-  const { name: treatmentName, slots } = treatment; // treatment means appointment option
+  const { name: treatmentName, slots,  price } = treatment; // treatment means appointment option
   const date = format(selectedDate, "PP");
   const { user } = useContext(AuthContext);
 
@@ -24,6 +24,7 @@ const BookingModal = ({ treatment, selectedDate, setTreatment, refetch }) => {
       slot: slot,
       email: email, 
       phone: phone,
+      price
     };
     /* 
         TODO: send data to the server and once data is saved then close the modal 
