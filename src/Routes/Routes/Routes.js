@@ -69,8 +69,8 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
             },
             {
                 path: '/dashboard/payment/:id',
-                element: <AdminRoute><Payment></Payment></AdminRoute>,
-                loader: ({params}) =>fetch(`http://localhost:5000/bookings/${params.id}`)
+                element:<Payment></Payment>,
+                loader: ({params}) =>fetch(`https://doctors-portal-server-delta-virid.vercel.app/bookings/${params.id}`)
             },
         ]
     }
